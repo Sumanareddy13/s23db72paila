@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome back to #{title}changes made by Sumanasri Paila
+
+  - results = [{ book_name: "comicBoom", book_genre: "funcomic", book_cost: 30 },{ book_name: "HarryPotter", book_genre: "Adventure", book_cost: 150 },{ book_name: "Lovestory", book_genre: "lovestory", book_cost: 100 }];
+  div.container-fluid 
+    -
+    div.row 
+    -
+    each item, index in results
+        div.col-sm-6
+            h2= item.book_name, onclick='buy(index)'
+            p= item.book_genre 
+            div.row
+                each prop, i in Object.keys(item)
+                    div(col-sm-2,  onclick=`buy(${index})`)
+                        p #{Object.keys(item)[i]}: #{item[prop]}
+
+
+        script.
+            function buy (index){
+                alert (`You purchased item ${index+1}`)    
+            }

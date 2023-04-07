@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome back to #{title} changes made by Sumanasri Paila
+  p
+    -let results =["comicBoom.jpg","HarryPotter.jpg","RichDadPoorDad.jpg","Hulk.jpg","Lovestory.jpg"]
+    -for(var i=0;i<3; i++) {
+        -let r = Math.floor(Math.random()*5);
+        img(src=`/images/${results[r]}` alt=`${r}` style+'height:300px; width:300px')
+    -}
+
+    
