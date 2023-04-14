@@ -16,7 +16,7 @@ var resourceRouter = require('./routes/resource');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var Books = require('./models/Books');
-var BookssRouter = require('./routes/Books');
+var BooksRouter = require('./routes/Books');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
 
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/Books', BookssRouter);
+app.use('/Books', BooksRouter);
 app.use('/board', boardRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
