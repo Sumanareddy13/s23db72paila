@@ -1,13 +1,15 @@
 extends layout
 block content
  h1= title
-
+ if (toShow == null)
+  h2 No instance to detail
+ else
   - let bookid = toShow._id
   - let book_name = toShow.book_name
   - let book_genre = toShow.book_genre
   - let book_cost = toShow.book_cost
 
- div
+  div
     div.row
      div(class='BooksAttr mr-3') book ID is:
      div #{bookid}

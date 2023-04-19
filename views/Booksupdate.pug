@@ -1,16 +1,19 @@
 extends layout
 block content
  h1= title
+ if (toShow == null)
+  h2 No instance to update 
+ else
   - let Booksid = toShow._id
   - let book_name = toShow.book_name
   - let Books_size = toShow.Books_size
   - let Books_cost = toShow.Books_cost
 
- div.row(class='mb-2')
-  div.mr-1 ID is
-  div #{Booksid}
- - let actionid = "/resource/Books/" + Booksid
- form(id='BooksForm', action= actionid, method="PUT")
+  div.row(class='mb-2')
+   div.mr-1 ID is
+   div #{Booksid}
+  - let actionid = "/resource/Books/" + Booksid
+  form(id='BooksForm', action= actionid, method="PUT")
    div.form-group
      label.BooksAttr(for='book_name') Books name
      input#book_name(type='text', name='book_name', value= book_name )
