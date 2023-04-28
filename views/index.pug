@@ -1,18 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title} changes made by Sumanasri Paila
-    button(type="button", class="btn btn-primary btn-sm", onclick='doReduce()' ) Press Me
-
-  br
-
-  div(class='div-class', id="reduce") Reduce the value
-  script.
-    var count=20;
-    var change=-1;
-    function doReduce(){
-      count+=change;
-      change-=1;
-      document.getElementById("reduce").innerHTML="Count " +count+" with change "+ change; 
-    }
+ if (!user)
+   a(href="/login") Login
+   br
+   a(href="/register") Register
+ if (user)
+   p You are currently logged in as #{user.username}
+   a(href="/Books") Take me to Books
+   br
+   a(href="/logout") Logout

@@ -2,13 +2,18 @@ extends layout
 block content
   h1= title
   -let items = results
+  - let createpage = `dispatch(\"/Books/create")`
+  button.btn( class="btn-primary ml-1", onclick= createpage) Create page
   div(class="container-fluid")
    div(class="row m-1")
     each item in items
      - let destination = `dispatch(\"/Books/update?id=${item._id}\")`
+     - let detailpage = `dispatch(\"/Books/detail?id=${item._id}\")`
+     - let deletepage = `dispatch(\"/Books/delete?id=${item._id}\")` 
      div(class="row-sm-2", class="m-1") Item #{item.book_name}(#{item.book_genre}) is #{item.book_cost}
-      button.btn( class="btn-primary ml-1", onclick= destination) Update
-
+      button.btn( class="btn-primary ml-1", onclick= destination style='margin-right: 10px;') Update
+      button.btn( class="btn-primary ml-1", onclick= detailpage, style='margin-right: 10px;' ) Detail page
+      button.btn( class="btn-primary ml-1", onclick= deletepage, style='margin-right: 10px;') Delete page
   script.
     function dispatch(path){
       window.location.href=path
